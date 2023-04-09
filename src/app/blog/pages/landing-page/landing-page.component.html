@@ -1,0 +1,20 @@
+<header *ngIf="headerArticle">
+  <blog-post
+    [article]="headerArticle"
+    (click)="openPost(headerArticle)"
+  ></blog-post>
+</header>
+
+<section>
+  <header>
+    <strong>Latest Articles</strong>
+
+    <input
+      [(ngModel)]="rawSearchKey"
+      type="text"
+      placeholder="Search Article"
+    />
+  </header>
+
+  <post-list [list]="postList"></post-list>
+</section>

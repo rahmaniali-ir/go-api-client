@@ -1,0 +1,15 @@
+
+@keyframes blog-in
+  100%
+    opacity: 1
+    transform: translateX(0)
+
+:host
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+  blog-post
+    animation: blog-in .3s ease forwards
+    opacity: 0
+    transform: translateX(-8px)
