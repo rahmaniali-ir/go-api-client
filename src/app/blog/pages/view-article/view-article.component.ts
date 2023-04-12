@@ -5,26 +5,26 @@ import { BlogService } from '../../services/blog.service';
 import { emptyArticle } from '../../config/article';
 
 @Component({
-  selector: 'view-post',
-  templateUrl: './view-post.component.html',
-  styleUrls: ['./view-post.component.sass'],
+  selector: 'view-article',
+  templateUrl: './view-article.component.html',
+  styleUrls: ['./view-article.component.sass'],
 })
-export class ViewPostComponent implements OnInit {
-  post: Article = emptyArticle;
+export class ViewArticleComponent implements OnInit {
+  article: Article = emptyArticle;
 
   constructor(private route: ActivatedRoute, private blog: BlogService) {}
 
   ngOnInit(): void {
-    this.getPost();
+    this.getArticle();
   }
 
   get id() {
     return Number(this.route.snapshot.paramMap.get('id') || 0);
   }
 
-  getPost() {
-    const post = this.blog.getPost(this.id);
+  getArticle() {
+    const article = this.blog.getArticle(this.id);
 
-    if (post) this.post = post;
+    if (article) this.article = article;
   }
 }

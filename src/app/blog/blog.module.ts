@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BlogPostComponent } from './component/blog-post/blog-post.component';
-import { PostListComponent } from './component/post-list/post-list.component';
+import { ArticleCardComponent } from './component/article-card/article-card.component';
+import { ArticleListComponent } from './component/article-list/article-list.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { ViewPostComponent } from './pages/view-post/view-post.component';
+import { ViewArticleComponent } from './pages/view-article/view-article.component';
 import { FormsModule } from '@angular/forms';
 import { CategorySelectorComponent } from './component/category-selector/category-selector.component';
 import { CategoryLabelComponent } from './component/category-label/category-label.component';
@@ -11,15 +11,15 @@ import { CategoryListComponent } from './component/category-list/category-list.c
 
 @NgModule({
   declarations: [
-    BlogPostComponent,
-    PostListComponent,
+    ArticleCardComponent,
+    ArticleListComponent,
     LandingPageComponent,
-    ViewPostComponent,
+    ViewArticleComponent,
     CategorySelectorComponent,
     CategoryLabelComponent,
     CategoryListComponent,
   ],
   imports: [CommonModule, FormsModule],
-  exports: [BlogPostComponent, PostListComponent],
+  exports: [ArticleCardComponent, ArticleListComponent],
 })
 export class BlogModule {}

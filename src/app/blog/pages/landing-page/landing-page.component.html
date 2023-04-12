@@ -1,8 +1,8 @@
 <header *ngIf="headerArticle">
-  <blog-post
+  <article-card
     [article]="headerArticle"
-    (click)="openPost(headerArticle)"
-  ></blog-post>
+    (click)="openArticle(headerArticle)"
+  ></article-card>
 </header>
 
 <section>
@@ -21,5 +21,5 @@
     />
   </header>
 
-  <post-list [list]="postList"></post-list>
+  <article-list [list]="filteredArticles"></article-list>
 </section>

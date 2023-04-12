@@ -16,16 +16,16 @@ export class LandingPageComponent implements OnInit {
   constructor(private blog: BlogService, private category: CategoryService) {}
 
   ngOnInit(): void {
-    this.blog.fetchAllPosts();
+    this.blog.fetchArticles();
     this.category.fetchAllCategories();
   }
 
-  get allPosts() {
-    return this.blog.posts;
+  get articles() {
+    return this.blog.articles;
   }
 
   get headerArticle() {
-    return this.allPosts[0];
+    return this.articles[0];
   }
 
   get categories() {
@@ -36,13 +36,13 @@ export class LandingPageComponent implements OnInit {
     return this.rawSearchKey.trim().toLowerCase();
   }
 
-  get postList() {
-    return this.allPosts.filter((post) =>
-      post.title.toLowerCase().includes(this.searchKey)
+  get filteredArticles() {
+    return this.articles.filter((article) =>
+      article.title.toLowerCase().includes(this.searchKey)
     );
   }
 
-  openPost(article: Article) {
-    this.blog.openPost(article.id);
+  openArticle(article: Article) {
+    this.blog.openArticle(article.id);
   }
 }
