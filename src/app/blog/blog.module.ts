@@ -5,6 +5,9 @@ import { PostListComponent } from './component/post-list/post-list.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ViewPostComponent } from './pages/view-post/view-post.component';
 import { FormsModule } from '@angular/forms';
+import { CategorySelectorComponent } from './component/category-selector/category-selector.component';
+import { CategoryLabelComponent } from './component/category-label/category-label.component';
+import { CategoryListComponent } from './component/category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +15,9 @@ import { FormsModule } from '@angular/forms';
     PostListComponent,
     LandingPageComponent,
     ViewPostComponent,
+    CategorySelectorComponent,
+    CategoryLabelComponent,
+    CategoryListComponent,
   ],
   imports: [CommonModule, FormsModule],
   exports: [BlogPostComponent, PostListComponent],

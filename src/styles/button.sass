@@ -1,0 +1,17 @@
+
+button
+    all: unset
+
+    border: solid 2px transparent
+    border-radius: 100px
+    cursor: pointer
+    padding: 6px 10px
+    transition: all .3s ease
+
+    &.neutral
+      &:hover
+        background: var(--accent-dark)
+
+      &.active
+        background: var(--primary)
+        color: var(--accent)

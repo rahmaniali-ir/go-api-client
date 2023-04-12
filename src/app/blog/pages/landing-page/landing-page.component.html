@@ -9,6 +9,11 @@
   <header>
     <strong>Latest Articles</strong>
 
+    <category-selector
+      [(selected)]="selectedCategory"
+      [categories]="categories"
+    ></category-selector>
+
     <input
       [(ngModel)]="rawSearchKey"
       type="text"

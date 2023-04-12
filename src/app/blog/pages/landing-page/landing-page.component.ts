@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
 import { Article } from '../../types/blog';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../types/category';
 
 @Component({
   selector: 'landing-page',
@@ -8,12 +10,14 @@ import { Article } from '../../types/blog';
   styleUrls: ['./landing-page.component.sass'],
 })
 export class LandingPageComponent implements OnInit {
+  selectedCategory?: Category;
   rawSearchKey = '';
 
-  constructor(private blog: BlogService) {}
+  constructor(private blog: BlogService, private category: CategoryService) {}
 
   ngOnInit(): void {
     this.blog.fetchAllPosts();
+    this.category.fetchAllCategories();
   }
 
   get allPosts() {
@@ -22,6 +26,10 @@ export class LandingPageComponent implements OnInit {
 
   get headerArticle() {
     return this.allPosts[0];
+  }
+
+  get categories() {
+    return this.category.categories;
   }
 
   get searchKey() {

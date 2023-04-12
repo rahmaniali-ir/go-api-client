@@ -1,0 +1,9 @@
+<button
+  *ngFor="let category of _categories; trackBy: trackById"
+  [title]="category.description"
+  [class.active]="category === selected"
+  (click)="select(category)"
+  class="neutral"
+>
+  {{ category.title }}
+</button>
