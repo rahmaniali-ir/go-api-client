@@ -3,6 +3,7 @@ import { BlogService } from '../../services/blog.service';
 import { Article } from '../../types/blog';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../types/category';
+import { allCategory } from '../../config/category';
 
 @Component({
   selector: 'landing-page',
@@ -29,15 +30,24 @@ export class LandingPageComponent implements OnInit {
   }
 
   get categories() {
-    return this.category.categories;
+    return [allCategory, ...this.category.categories];
   }
 
   get searchKey() {
     return this.rawSearchKey.trim().toLowerCase();
   }
 
-  get filteredArticles() {
+  get categoryArticles() {
+    if (!this.selectedCategory || !this.selectedCategory.id)
+      return this.articles;
+
     return this.articles.filter((article) =>
+      article.categories.includes(this.selectedCategory!.id)
+    );
+  }
+
+  get filteredArticles() {
+    return this.categoryArticles.filter((article) =>
       article.title.toLowerCase().includes(this.searchKey)
     );
   }
