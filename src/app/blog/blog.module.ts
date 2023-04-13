@@ -8,6 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { CategorySelectorComponent } from './component/category-selector/category-selector.component';
 import { CategoryLabelComponent } from './component/category-label/category-label.component';
 import { CategoryListComponent } from './component/category-list/category-list.component';
+import { BlogOutletComponent } from './component/blog-outlet/blog-outlet.component';
+import { RouterModule } from '@angular/router';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +21,9 @@ import { CategoryListComponent } from './component/category-list/category-list.c
     CategorySelectorComponent,
     CategoryLabelComponent,
     CategoryListComponent,
+    BlogOutletComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, CoreModule],
   exports: [ArticleCardComponent, ArticleListComponent],
 })
 export class BlogModule {}

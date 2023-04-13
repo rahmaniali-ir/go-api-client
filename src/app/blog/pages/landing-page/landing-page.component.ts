@@ -18,7 +18,7 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.blog.fetchArticles();
-    this.category.fetchAllCategories();
+    this.category.fetchAllCategories().subscribe();
   }
 
   get articles() {

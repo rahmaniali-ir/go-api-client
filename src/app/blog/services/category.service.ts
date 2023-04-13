@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Category } from '../types/category';
 import { ApiService } from 'src/app/core/services/api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +12,19 @@ export class CategoryService {
   constructor(private api: ApiService) {}
 
   fetchAllCategories() {
-    this.api.get<Category[]>('categories').subscribe((response) => {
-      this.categories = response.body;
+    return new Observable<Category[]>((subscriber) => {
+      this.api.get<Category[]>('categories').subscribe({
+        next: (response) => {
+          this.categories = response.body;
+
+          subscriber.next(this.categories);
+          subscriber.complete();
+        },
+        error: (err) => {
+          subscriber.error(err);
+          subscriber.complete();
+        },
+      });
     });
   }
 

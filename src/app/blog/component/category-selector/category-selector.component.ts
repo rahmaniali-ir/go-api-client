@@ -17,7 +17,9 @@ export class CategorySelectorComponent {
     this._categories = categories;
 
     if (!this.selected && categories.length) {
-      this.select(categories[0]);
+      setTimeout(() => {
+        this.select(categories[0]);
+      });
     }
   }
 

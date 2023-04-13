@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BlogModule } from './blog/blog.module';
 import { CoreModule } from './core/core.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { CoreModule } from './core/core.module';
     BlogModule,
     HttpClientModule,
     CoreModule,
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
