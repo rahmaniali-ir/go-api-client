@@ -14,3 +14,8 @@ export interface Article extends BaseArticle {
 export interface ArticleResponse extends BaseArticle {
   categories: string;
 }
+
+export interface ArticleContent {
+  id: number;
+  content: string;
+}

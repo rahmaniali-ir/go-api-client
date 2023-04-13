@@ -1,5 +1,11 @@
-<h1>{{ article.title }}</h1>
+<ng-container *ngIf="article">
+  <h1>{{ article.title }}</h1>
 
-<p>{{ article.description }}</p>
+  <p>{{ article.description }}</p>
 
-<main>{{ article.content }}</main>
+  <main>{{ article.content }}</main>
+</ng-container>
+
+<ng-container *ngIf="loading">
+  <h1>Loading...</h1>
+</ng-container>

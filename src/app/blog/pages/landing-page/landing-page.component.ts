@@ -22,7 +22,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   get articles() {
-    return this.blog.articles;
+    return this.blog.articlesArray;
   }
 
   get headerArticle() {

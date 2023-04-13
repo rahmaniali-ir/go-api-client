@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../../types/blog';
 import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
-import { emptyArticle } from '../../config/article';
 
 @Component({
   selector: 'view-article',
@@ -10,7 +9,8 @@ import { emptyArticle } from '../../config/article';
   styleUrls: ['./view-article.component.sass'],
 })
 export class ViewArticleComponent implements OnInit {
-  article: Article = emptyArticle;
+  article?: Article;
+  loading = true;
 
   constructor(private route: ActivatedRoute, private blog: BlogService) {}
 
@@ -23,8 +23,14 @@ export class ViewArticleComponent implements OnInit {
   }
 
   getArticle() {
-    const article = this.blog.getArticle(this.id);
-
-    if (article) this.article = article;
+    this.blog.getArticle(this.id).subscribe({
+      next: (article) => {
+        this.loading = false;
+        this.article = article;
+      },
+      error: () => {
+        this.loading = false;
+      },
+    });
   }
 }
